@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import ProgressBar from './Components/ProgressBar';
+
+
+const testData = [
+  {
+    bgcolor: "#152887", completed: 35
+  },
+  {
+    bgcolor: "#152887", completed: 55
+  },
+  {
+    bgcolor: "#152887", completed: 80
+  },
+  {
+    bgcolor: "#152887", completed: 100
+  }
+];
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {testData.map((item, idx) => (
+        <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+      ))}
     </div>
   );
 }
